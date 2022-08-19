@@ -10,16 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var TotalCuenta: UITextField!
+    @IBOutlet weak var lblBarraPropina: UISlider!
+    @IBOutlet weak var PorcentajeBarra: UILabel!
+    @IBOutlet weak var lblPropina: UILabel!
+    @IBOutlet weak var lblTotal: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    @IBAction func BarraPropina(_ sender: Any) {
+        //Propina
+        //let valorSlider = Int(1)
+        //let porcentaje = Int(1)
+        //let propina = lblBarraPropina.value * Float(porcentaje)
+        //let text = "\(propina)%"
+        
+        //PorcentajeBarra.text = text
+        PorcentajeBarra.text = "\(Int(lblBarraPropina.value))%"
+        
+        lblTotal.text = "$\(TotalCuenta.text!)"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
 }
 
