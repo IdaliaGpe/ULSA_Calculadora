@@ -20,17 +20,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //Variable Barra
+    var texto = Float(0)
+    
     @IBAction func BarraPropina(_ sender: Any) {
+        
+        //Barra
+        texto = lblBarraPropina.value
+        PorcentajeBarra.text = "\(Int(texto))%"
+        
         //Propina
-        //let valorSlider = Int(1)
-        //let porcentaje = Int(1)
-        //let propina = lblBarraPropina.value * Float(porcentaje)
-        //let text = "\(propina)%"
+        let totalP = TotalCuenta.text!
+        let total = Float(totalP) ?? 0.0
+        let resulPropina = (total * (texto/100.0))
+        let precioTotal = total + resulPropina
         
-        //PorcentajeBarra.text = text
-        PorcentajeBarra.text = "\(Int(lblBarraPropina.value))%"
-        
-        lblTotal.text = "$\(TotalCuenta.text!)"
+        //Totales
+        lblPropina.text = String(format: "$ %.2f", resulPropina)
+        lblTotal.text = String(format: "$ %.2f", precioTotal)
     }
     
     override func didReceiveMemoryWarning() {
